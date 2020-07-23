@@ -1,5 +1,6 @@
 <template>
   <div class="toDoList">
+     <el-input v-model="newThing" placeholder="请输入还要做什么"  clearable @keyup.enter.native="onSubmit"></el-input>
       <div class="haveToDo">
           <h2>还要做什么</h2>
           <ol>
@@ -20,13 +21,24 @@ export default {
   name: 'ToDoList',
   data () {
     return {
-      haveToDo: ['111', '22'],
-      haveDone: ['11221', '2332']
+      newThing: '',
+      haveToDo: [],
+      haveDone: []
     }
   },
   methods: {
+    onSubmit () {
+      this.haveToDo.push(this.newThing)
+      this.newThing = ''
+    },
     doItem (item) {
-      console.log(item)
+      this.haveToDo.splice(this.haveToDo.findIndex(it => it === item.srcElement.innerText), 1)
+      this.haveDone.push(item.srcElement.innerText)
+    },
+    redoItem (item) {
+      console.log(item.srcElement.innerText)
+      this.haveDone.splice(this.haveDone.findIndex(it => it === item.srcElement.innerText), 1)
+      this.haveToDo.push(item.srcElement.innerText)
     }
   }
 }

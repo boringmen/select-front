@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ToDoList from '@/components/ToDoList/ToDoList'
+import FourQuadrantRules from '@/components/FourQuadrantRules/FourQuadrantRules'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'ToDoList',
-      component: ToDoList
+      name: 'FourQuadrantRules',
+      component: FourQuadrantRules
     }
   ]
 })
