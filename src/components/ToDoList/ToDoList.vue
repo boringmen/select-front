@@ -8,7 +8,6 @@
           </ol>
       </div>
       <div class="haveDone">
-          <h2>做完了什么</h2>
            <ol>
               <li v-for="(item,i) in haveDone" :key="i" @click="redoItem">{{item}}</li>
           </ol>
@@ -45,5 +44,9 @@ export default {
 </script>
 
 <style scoped>
+.haveDone {
+  text-decoration:line-through;
+            color: rgba(138, 133, 133, 0.377);
 
+}
 </style>
