@@ -1,8 +1,16 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-22 20:41:09
+ * @LastEditTime: 2020-08-03 11:30:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \selectFront\src\components\ToDoList\ToDoList.vue
+-->
 <template>
   <div class="toDoList">
+     <h2>{{this.title}}</h2>
      <el-input v-model="newThing" placeholder="请输入还要做什么"  clearable @keyup.enter.native="onSubmit"></el-input>
       <div class="haveToDo">
-          <h2>还要做什么</h2>
           <ol>
               <li v-for="(item,i) in haveToDo" :key="i" @click="doItem">{{item}}</li>
           </ol>
@@ -25,6 +33,7 @@ export default {
       haveDone: []
     }
   },
+  props: ['title'],
   methods: {
     onSubmit () {
       this.haveToDo.push(this.newThing)
